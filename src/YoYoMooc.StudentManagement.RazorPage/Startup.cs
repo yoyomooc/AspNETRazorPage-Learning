@@ -5,9 +5,12 @@ using System.Threading.Tasks;
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+
+using YoYoMooc.StudentManagement.Services;
 
 namespace YoYoMooc.StudentManagement.RazorPage
 {
@@ -24,6 +27,20 @@ namespace YoYoMooc.StudentManagement.RazorPage
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddSingleton<IStudentRepository, MockStudentRepository>();
+
+            services.Configure<RouteOptions>(options =>
+            {
+                //如果你希望URL中的查询字符串为小写
+                //就需要将LowercaseUrls为true，默认值为false
+                options.LowercaseUrls = true;
+                //LowercaseQueryStrings的值也需要设置为true,默认值为false
+                options.LowercaseQueryStrings = true;
+                //  在生成的URL后面附加一个斜杠
+                options.AppendTrailingSlash = true;
+ 
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
