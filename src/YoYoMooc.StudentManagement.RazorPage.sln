@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YoYoMooc.StudentManagement.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YoYoMooc.StudentManagement.Models", "YoYoMooc.StudentManagement.Models\YoYoMooc.StudentManagement.Models.csproj", "{5C80B189-555C-4422-9D9B-023F041E9D4A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YoYoMooc.StudentManagement.Services", "YoYoMooc.StudentManagement.Services\YoYoMooc.StudentManagement.Services.csproj", "{21BB4369-FB23-4765-9FA8-B75AC65541A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YoYoMooc.StudentManagement.Services", "YoYoMooc.StudentManagement.Services\YoYoMooc.StudentManagement.Services.csproj", "{21BB4369-FB23-4765-9FA8-B75AC65541A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

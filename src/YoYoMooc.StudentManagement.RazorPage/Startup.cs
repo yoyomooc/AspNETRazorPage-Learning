@@ -31,14 +31,8 @@ namespace YoYoMooc.StudentManagement.RazorPage
 
             services.Configure<RouteOptions>(options =>
             {
-                //如果你希望URL中的查询字符串为小写
-                //就需要将LowercaseUrls为true，默认值为false
-                options.LowercaseUrls = true;
-                //LowercaseQueryStrings的值也需要设置为true,默认值为false
-                options.LowercaseQueryStrings = true;
-                //  在生成的URL后面附加一个斜杠
-                options.AppendTrailingSlash = true;
- 
+              
+                options.ConstraintMap.Add("even", typeof(EvenConstraint));
             });
 
         }

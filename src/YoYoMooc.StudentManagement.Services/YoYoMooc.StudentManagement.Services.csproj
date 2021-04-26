@@ -4,6 +4,7 @@
     <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
 
+
   <ItemGroup>
     <ProjectReference Include="..\YoYoMooc.StudentManagement.Models\YoYoMooc.StudentManagement.Models.csproj" />
   </ItemGroup>

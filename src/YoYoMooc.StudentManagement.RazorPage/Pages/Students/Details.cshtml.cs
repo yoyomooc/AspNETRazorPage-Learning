@@ -20,13 +20,21 @@ namespace YoYoMooc.StudentManagement.RazorPage.Pages.Students
         }
 
         public Student Student { get; set; }
+
+
+
+
+        [BindProperty(SupportsGet = true)]
+        public int Id { get; set; }
+
+
         /// <summary>
         /// //模型绑定自动映射查询字符串id的值，映射到OnGet()方法上的设置为id参数
-        /// </summary>
-        /// <param name="id"></param>
-        public void OnGet(int id)
+        /// </summary>       
+        public void OnGet()
         {
-            Student = _studentRepository.GetStudent(id);
+             
+            Student = _studentRepository.GetStudent(Id);
         }
     }
 }
