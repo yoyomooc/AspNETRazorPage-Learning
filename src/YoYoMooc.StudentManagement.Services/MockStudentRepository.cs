@@ -28,5 +28,19 @@ namespace YoYoMooc.StudentManagement.Services
         {
             return _studentList.FirstOrDefault(e => e.Id == id);
         }
+
+        public Student Update(Student updatedStudent)
+        {
+            Student student = _studentList
+                   .FirstOrDefault(e => e.Id == updatedStudent.Id);
+            if (student != null)
+            {
+                student.Name = updatedStudent.Name;
+                student.Email = updatedStudent.Email;
+                student.Major = updatedStudent.Major;
+                student.PhotoPath = updatedStudent.PhotoPath;
+            }
+            return student;
+        }
     }
 }
