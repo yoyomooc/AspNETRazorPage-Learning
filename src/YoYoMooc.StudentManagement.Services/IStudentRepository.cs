@@ -11,5 +11,8 @@ namespace YoYoMooc.StudentManagement.Services
         IEnumerable<Student> GetAllStudents();
         Student GetStudent(int id);
         Student Update(Student updatedStudent);
+
+        Student Add(Student newStudent);
     }
+ 
 }

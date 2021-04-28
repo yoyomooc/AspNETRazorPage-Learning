@@ -42,5 +42,14 @@ namespace YoYoMooc.StudentManagement.Services
             }
             return student;
         }
+
+        public Student Add(Student newStudent)
+        {
+            newStudent.Id = _studentList.Max(s => s.Id) + 1;
+            _studentList.Add(newStudent);
+            return newStudent;
+
+
+        }
     }
 }

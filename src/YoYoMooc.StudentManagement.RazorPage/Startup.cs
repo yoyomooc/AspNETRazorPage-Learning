@@ -26,9 +26,17 @@ namespace YoYoMooc.StudentManagement.RazorPage
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages();
+             
+            services.AddRazorPages()
+       .AddSessionStateTempDataProvider();
+
+            services.AddSession();
+
             services.AddSingleton<IStudentRepository, MockStudentRepository>();
 
+           
+
+ 
             services.Configure<RouteOptions>(options =>
             {
               
@@ -49,11 +57,15 @@ namespace YoYoMooc.StudentManagement.RazorPage
                 app.UseExceptionHandler("/Error");
             }
 
-            app.UseStaticFiles();
+
+             app.UseStaticFiles();
 
             app.UseRouting();
 
             app.UseAuthorization();
+
+
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {

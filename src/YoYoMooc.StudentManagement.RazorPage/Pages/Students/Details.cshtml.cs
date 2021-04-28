@@ -24,6 +24,10 @@ namespace YoYoMooc.StudentManagement.RazorPage.Pages.Students
 
 
 
+        [TempData]
+        public string Message { get; set; }
+
+
         [BindProperty(SupportsGet = true)]
         public int Id { get; set; }
 
@@ -33,7 +37,10 @@ namespace YoYoMooc.StudentManagement.RazorPage.Pages.Students
         /// </summary>       
         public void OnGet()
         {
-             
+           
+           // TempData.Keep("Message");
+           // TempData.Keep();
+
             Student = _studentRepository.GetStudent(Id);
         }
     }
