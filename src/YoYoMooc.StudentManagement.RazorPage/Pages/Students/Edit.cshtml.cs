@@ -41,11 +41,17 @@ namespace YoYoMooc.StudentManagement.RazorPage.Pages.Students
 
 
 
-        public IActionResult OnGet(int id)
+        public IActionResult OnGet(int? id)
         {
 
-            Student = _studentRepository.GetStudent(id);
-
+            if (id.HasValue)
+            {
+                Student = _studentRepository.GetStudent(id.Value);
+            }
+            else
+            {
+                Student = new Student();
+            }
             if (Student == null)
             {
                 return RedirectToPage("/NotFound");
@@ -67,8 +73,7 @@ namespace YoYoMooc.StudentManagement.RazorPage.Pages.Students
 
 
             //将确认消息存储在TempData中
-            TempData["Message"] = Message;
-           
+            TempData["Message"] = Message;         
 
             // 将请求重定向到Details razor页面，并传递StudentId 
             //StudentId作为路由参数传递  
@@ -84,11 +89,7 @@ namespace YoYoMooc.StudentManagement.RazorPage.Pages.Students
 
             if (ModelState.IsValid)
             {
-
-          
-
-
-
+ 
             if (Photo != null)
             {
                 //上传新照片的时候，需要检查当前学生是否有已经存在的照片，如果有的话，就需要删除它，再上传新照片。
