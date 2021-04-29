@@ -51,5 +51,18 @@ namespace YoYoMooc.StudentManagement.Services
 
 
         }
+
+        public Student Delete(int id)
+        {
+            var studentToDelete = _studentList.FirstOrDefault(e => e.Id == id);
+
+            if (studentToDelete != null)
+            {
+                _studentList.Remove(studentToDelete);
+            }
+
+            return studentToDelete;
+        }
+
     }
 }

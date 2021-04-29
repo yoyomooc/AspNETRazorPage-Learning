@@ -28,6 +28,7 @@ namespace YoYoMooc.StudentManagement.RazorPage
         {
              
             services.AddRazorPages()
+                .AddRazorRuntimeCompilation() 
        .AddSessionStateTempDataProvider();
 
             services.AddSession();
