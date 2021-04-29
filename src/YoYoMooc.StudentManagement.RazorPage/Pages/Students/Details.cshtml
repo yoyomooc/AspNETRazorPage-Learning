@@ -1,8 +1,7 @@
 
 
 @page "students/view/{id:even}"
-
-@model YoYoMooc.StudentManagement.RazorPage.Pages.Students.DetailsModel
+ @model YoYoMooc.StudentManagement.RazorPage.Pages.Students.DetailsModel
 @{
     ViewData["Title"] = "学生详情页面";
     var photoPath = "~/Images/" + (Model.Student.PhotoPath ?? "noimage.png");
@@ -11,6 +10,17 @@
 
 
 <div class="row justify-content-center m-3">
+@*@await Component.InvokeAsync("HeadCount")*@
+@await Component.InvokeAsync(typeof(HeadCountViewComponent) ,new
+{
+    Major =  Model.Student.Major
+})
+
+
+<vc:head-count major="null"></vc:head-count>
+<vc:head-count major="@Model.Student.Major"></vc:head-count>
+
+
 @if (  TempData.Peek("Message") != null)
 {
     <div class="col-sm-8">

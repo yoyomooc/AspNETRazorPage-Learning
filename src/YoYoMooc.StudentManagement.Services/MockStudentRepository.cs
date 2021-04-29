@@ -64,5 +64,24 @@ namespace YoYoMooc.StudentManagement.Services
             return studentToDelete;
         }
 
+        public IEnumerable<MajorHeadCount> StudentCountByMajorEnum(MajorEnum? Major)
+        {
+
+            IEnumerable<Student> query = _studentList;
+
+            if (Major.HasValue)
+            {
+                query = query.Where(e => e.Major == Major.Value);
+            }
+
+            var dtos= query.GroupBy(e => e.Major)
+                                 .Select(g => new MajorHeadCount()
+                                 {
+                                     Major = g.Key.Value,
+                                     Count = g.Count()
+                                 }).ToList();
+
+            return dtos;
+        }
     }
 }

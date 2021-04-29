@@ -1,15 +1,21 @@
 @page "{id}"
 @model DeleteModel
 @{
-    ViewData["Title"] = "删除";
+    ViewData["Title"] = "删除页面";
+    //使用ViewData传递false 来告诉分部视图隐藏查看编辑和删除按钮
+     ViewData["ShowButtons"] = false;
 }
-
 <h1>确认删除</h1>
-
 <div class="alert alert-danger">
+         <partial name="_DisplayStudentPartial" model="@Model.Student" view-data="ViewData" />
+
     <h5>确实要删除学生 - @Model.Student.Name  信息吗？</h5>
     <form method="post">
         <button type="submit" class="btn btn-danger">确认</button>
         <a asp-page="/Students/Index" class="btn btn-primary">取消</a>
     </form>
 </div>
+
+
+  
+ 

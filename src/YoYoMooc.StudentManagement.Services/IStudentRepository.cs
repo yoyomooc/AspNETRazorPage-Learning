@@ -16,7 +16,7 @@ namespace YoYoMooc.StudentManagement.Services
 
         Student Delete(int id);
 
-
+        IEnumerable<MajorHeadCount> StudentCountByMajorEnum(MajorEnum? Major);
     }
 
 }
